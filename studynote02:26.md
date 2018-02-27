@@ -18,7 +18,7 @@
   str.object_id # => 2004
 ```
 
-## Ruby seems passing value by value
+## Ruby **seems** passing value by value
 
 Looking at the following example
 
@@ -34,7 +34,7 @@ Looking at the following example
 
 This example above seems like Ruby passes value by value, right? But wait, consider the following code
 
-## Ruby seems passing value by reference, too
+## Ruby **seems** passing value by reference, too
 
 Looking at the following example
 
@@ -49,7 +49,7 @@ Looking at the following example
   puts x #1020
 ```
 
-Hah, now it seems that Ruby passes value by reference from the above example, right?
+Hah, now it **seems** that Ruby passes value by reference from the above example, right?
 
 ## You have to remember this sentence for thousands times
 
@@ -100,3 +100,43 @@ change_str(s)
 puts s  # => foobar
 
 ```
+
+Example 3
+
+```ruby
+my_string = "roy"
+
+def change_string(str)
+  puts "the object id of #{str} is #{str.object_id}"
+  str = "changed"   # "change" string is a mutable object, thus what stored in str is a reference (address) number to the string "changed", which is different from the (str) as the method argument
+  puts "then, the object id of #{str} is #{str.object_id}"
+end
+
+puts my_string
+
+change_string(my_string)
+
+puts my_string
+```
+
+Exmaple 4
+
+```ruby
+my_string = "roy"
+
+def change_string(str)
+  puts "the object id of #{str} is #{str.object_id}"
+  str = str << "!"   #str here is also a local variable, which has nothing to do with the (str) in the method argument. The thing stroed in the local str is a reference to the original object
+  puts "then, the object id of #{str} is #{str.object_id}"
+end
+
+puts my_string
+
+change_string(my_string)
+
+puts my_string
+
+```
+
+
+## 
