@@ -90,4 +90,8 @@ the route should be tests#new
   	* A resources :tests routes in your routes.rb file
  
   	* 7 corresponding view files in your view directory
+
+    * Migration file
+
+    * Contrller file
    
